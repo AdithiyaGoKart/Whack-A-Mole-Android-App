@@ -46,9 +46,6 @@ public class SettingsActivity extends AppCompatActivity {
                     save.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-//                            Resources res = getApplicationContext().getResources();
-//                            Drawable bg1 = ResourcesCompat.getDrawable(res, R.drawable.spacebgtwo, null);
-//                            layoutMain.setBackground(bg1);
                             String bgSender = "1";
                             i2.putExtra("bgSender", bgSender);
                             Toast.makeText(SettingsActivity.this, "Info Saved", Toast.LENGTH_SHORT).show();
