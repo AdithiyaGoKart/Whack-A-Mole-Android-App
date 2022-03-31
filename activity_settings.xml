@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
+    android:background="@drawable/whackamolespacebackground">
+
+    <TextView
+        android:id="@+id/settingsTitle"
+        android:layout_width="341dp"
+        android:layout_height="97dp"
+        android:gravity="center"
+        android:text="CHANGE BACKGROUND"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <TextView
+        android:id="@+id/optionsTitle"
+        android:layout_width="259dp"
+        android:layout_height="86dp"
+        android:gravity="center"
+        android:text="CLICK ON THE BG YOU WANT FOR THE GAME:"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234" />
+
+    <ImageView
+        android:id="@+id/bg3"
+        android:layout_width="123dp"
+        android:layout_height="179dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.993"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bg2"
+        app:srcCompat="@drawable/spacebgsix" />
+
+    <ImageView
+        android:id="@+id/bg1"
+        android:layout_width="163dp"
+        android:layout_height="176dp"
+        android:layout_marginEnd="264dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.527"
+        app:srcCompat="@drawable/spacebgtwo" />
+
+    <ImageView
+        android:id="@+id/bg2"
+        android:layout_width="112dp"
+        android:layout_height="171dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bg1"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/spacebgthree" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="406dp"
+        android:layout_height="84dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76">
+
+        <RadioButton
+            android:id="@+id/bgchoice1"
+            android:layout_width="144dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:text="OPTION 1"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/bgchoice2"
+            android:layout_width="150dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:text="OPTION 2"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/bgchoice3"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="OPTION 3"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="176dp"
+        android:layout_height="79dp"
+        android:text="SAVE"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
+
+    <Button
+        android:id="@+id/goBackHomeButton"
+        android:layout_width="176dp"
+        android:layout_height="79dp"
+        android:text="GO BACK HOME"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
+</androidx.constraintlayout.widget.ConstraintLayout>
