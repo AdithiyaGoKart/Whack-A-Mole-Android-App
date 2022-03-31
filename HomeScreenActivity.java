@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,17 +20,12 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+        Intent intent = new Intent(this, ChoosingDifficultyPage.class);
+
         titleText = findViewById(R.id.titleText);
         playText = findViewById(R.id.playText);
         howToPlayButton = findViewById(R.id.gameRulesText);
         settingsButton = findViewById(R.id.settingsButton);
-
-//        Bundle data = getIntent().getExtras();
-//        if (!(data == null)){
-//            String bgSender = data.getString("bgSender");
-//            Intent intent = new Intent(this, ChoosingDifficultyPage.class);
-//            intent.putExtra("bgSender", bgSender);
-//        }
 
         playText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +52,13 @@ public class HomeScreenActivity extends AppCompatActivity {
     public void goToDifficultyChoosingPage()
     {
         Intent intent = new Intent(this, ChoosingDifficultyPage.class);
-//        if(!StringUtils.isBlank(bckgrndDataString1))
-//            intent.putExtra("bckgrndDataString1", bckgrndDataString1);
-//        if(!StringUtils.isBlank(bckgrndDataString2))
-//            intent.putExtra("bckgrndDataString2", bckgrndDataString2);
-//        if(!StringUtils.isBlank(bckgrndDataString1))
-//            intent.putExtra("bckgrndDataString3", bckgrndDataString3);
+        Bundle data = getIntent().getExtras();
+        if (data != null){
+            String bgSender = data.getString("bgSender");
+            Toast.makeText(this, bgSender, Toast.LENGTH_SHORT).show();
+            intent.putExtra("bgSender", bgSender);
+
+        }
         startActivity(intent);
     }
     public void goToRulePage()
