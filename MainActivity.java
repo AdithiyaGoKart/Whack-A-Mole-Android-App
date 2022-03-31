@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         createAlienAndUpdateScore();
+        bombAddition();
 
 //        bombDecider = random.nextInt(10+1);
 //        if (bombDecider % 2 == 0){
