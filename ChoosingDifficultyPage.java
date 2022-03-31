@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChoosingDifficultyPage extends AppCompatActivity
 {
@@ -36,11 +37,11 @@ public class ChoosingDifficultyPage extends AppCompatActivity
         mediumMode = findViewById(R.id.mediumDiffButton);
         hardMode = findViewById(R.id.hardDiffButton);
 
-//        Bundle moveBckgrndData = getIntent().getExtras();
-//        if (!(moveBckgrndData == null)){
-//            String bgSender = moveBckgrndData.getString("bgSender");
-//            i.putExtra("bgSender", bgSender);
-//        }
+        Bundle moveBckgrndData = getIntent().getExtras();
+        if (moveBckgrndData != null){
+            String bgSender = moveBckgrndData.getString("bgSender");
+            i.putExtra("bgSender", bgSender);
+        }
 
         easyMode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,9 +101,6 @@ public class ChoosingDifficultyPage extends AppCompatActivity
             public void onClick(View view) {
                 String timeBetweenJump = intervalChange+"";
                 i.putExtra("timeBetweenJump", timeBetweenJump);
-//                i.putExtra("bckgrndDataString1", bckgrndDataString1);
-//                i.putExtra("bckgrndDataString2", bckgrndDataString2);
-//                i.putExtra("bckgrndDataString3", bckgrndDataString3);
                 startActivity(i);
             }
         });
