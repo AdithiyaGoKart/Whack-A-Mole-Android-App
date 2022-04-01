@@ -103,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
         layoutMain = findViewById(R.id.layoutMain);
 
-        layoutMain.setBackgroundResource(R.drawable.spacebgsix);
-
         hitText = findViewById(R.id.hitCountText);
         scoreText = findViewById(R.id.scoreText);
         timerText = findViewById(R.id.timer);
@@ -138,18 +136,24 @@ public class MainActivity extends AppCompatActivity {
         Bundle getValues = getIntent().getExtras();
         if (getValues != null){
             String timeBetweenJump = getValues.getString("timeBetweenJump");
-            String bg = getValues.getString("bgSender");
+            bg = getValues.getString("bgSender");
+            if (bg == (null)){
+                layoutMain.setBackgroundResource(R.drawable.whackamolespacebackground);
+            }
+            else if (bg.equals("1")){
+                layoutMain.setBackgroundResource(R.drawable.spacebgtwo);
+            }
+            else if (bg.equals("2")){
+                layoutMain.setBackgroundResource(R.drawable.spacebgthree);
+            }
+            else if (bg.equals("3")){
+                layoutMain.setBackgroundResource(R.drawable.spacebgfive);
+            }
             intervalChange = Integer.parseInt(timeBetweenJump);
         }
 
         createAlienAndUpdateScore();
         bombAddition();
-
-//        bombDecider = random.nextInt(10+1);
-//        if (bombDecider % 2 == 0){
-//            bombAddition();
-//        }
-
 
         System.out.println(intervalChange);
 
@@ -231,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 // Removes alien from one location and adds to another after time limit per location is set
                 runOnUiThread(() -> {
+                    alien.setImageResource(R.drawable.pownobg);
                     vanishAlienLocation();
                     if(!alien.isPressed()){
                         livesCounter--;
@@ -273,9 +278,9 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
+                hitcount++;
                 vanishAlienLocation();
                 superChargeCounter++;
-                hitcount++;
                 if (superChargeCounter >= 8){
                     Toast toast = Toast.makeText(getApplicationContext(), "SUPER CHARGE MODE: ON", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -381,12 +386,8 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
+                bomb.setImageResource(R.drawable.pownobg);
                 vanishBombLocation();
-//                bombCounter++;
-//                Log.d("bomb pressed", bombCounter+"");
-//                sec = sec - 5;
-//                String seconds = nf.format(sec);
-//                timerText.setText(nf.format(min)+":"+seconds);
                 score = score-50;
                 scoreText.setText("Score: "+score);
             }
@@ -395,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
     private synchronized void vanishBombLocation() {
         System.out.println("Bomb Index: '" + bombIndex + "'");
         runOnUiThread(() -> {
-//            bomb.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out));
+            bomb.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out));
             layoutMain.removeView(bomb);
             System.out.println("Reached here to remove bomb of index: '" + bombIndex + "'");
         });
