@@ -22,8 +22,8 @@ public class RulePageActivity extends AppCompatActivity {
         rulesTitle = findViewById(R.id.rulesTitle);
         goHomeText = findViewById(R.id.goHome);
 
-        rulesList.setText("- Whack the mole to increase your score and hit count\n\n- The score increases in increments of 20 and hit count" +
-                "by 1\n\n- If you don't hit an alien, you lose a life; if you lose 5 lives, it's game over!");
+        rulesList.setText("Whack the mole to increase your score and hit count\n\nThe score increases in increments of 20 and hit count" +
+                "by 1\n\nIf you don't hit an alien, you lose a life; if you lose 5 lives, it's game over!");
 
         goHomeText.setOnClickListener(new View.OnClickListener() {
             @Override
