@@ -28,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Intent i = new Intent(this, HomeScreenActivity.class);
+        Intent intent = new Intent(this, HomeScreenActivity.class);
         Intent i2 = new Intent(this, MainActivity.class);
 
         radioGroup = findViewById(R.id.radioGroup);
@@ -43,31 +43,31 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == R.id.bgchoice1){
+                    String bgSender = "1";
+                    intent.putExtra("bgSender", bgSender);
                     save.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String bgSender = "1";
-                            i2.putExtra("bgSender", bgSender);
                             Toast.makeText(SettingsActivity.this, "Info Saved", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 if (i == R.id.bgchoice2){
+                    String bgSender = "2";
+                    intent.putExtra("bgSender", bgSender);
                     save.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String bgSender = "2";
-                            i2.putExtra("bgSender", bgSender);
                             Toast.makeText(SettingsActivity.this, "Info Saved", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 if (i == R.id.bgchoice3){
+                    String bgSender = "3";
+                    intent.putExtra("bgSender", bgSender);
                     save.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String bgSender = "3";
-                            i2.putExtra("bgSender", bgSender);
                             Toast.makeText(SettingsActivity.this, "Info Saved", Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -75,11 +75,10 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-
         goBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(i);
+                startActivity(intent);
             }
         });
     }
